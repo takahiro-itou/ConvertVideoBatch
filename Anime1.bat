@@ -19,7 +19,9 @@ set  command_line=ffmpeg  -i "%source%"  ^
   "%output%"
 ECHO  RunCmd: %command_line%
 
+@ECHO  ON
 %command_line%
+@ECHO  OFF
 
 SHIFT
 GOTO  loop
