@@ -21,12 +21,8 @@ set  audio_common= -ac 2
 set  video_opts=%video_common%  -q:v 2
 set  audio_opts=%audio_common%  -b:a 320k
 
-set  command_line=ffmpeg  ^
-  -i "%source%"  ^
-  %video_opts%  ^
-  %audio_opts%  ^
-  %FFMPEG_OPTS%  ^
-  "%output%"
+set  command_line=ffmpeg  -i "%source%"  ^
+  %video_opts%  %audio_opts%  %FFMPEG_OPTS%  "%output%"
 ECHO  RunCmd: %command_line%
 
 SHIFT
