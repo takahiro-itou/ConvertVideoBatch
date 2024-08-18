@@ -15,12 +15,14 @@ ECHO  Source : %source%
 ECHO  Output : %output%
 ECHO  Option : %FFMPEG_OPTS%
 
-set  command_line=ffmpeg  ^
-  -i "%source%"  ^
-  -c:v wmv2  -s 480x270  -aspect 16:9  -q:v 2  ^
-  -ac 2  -b:a 320k  ^
-  %FFMPEG_OPTS%  ^
-  "%output%"
+set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
+set  audio_common= -c:a wmav2  -ac 2
+
+set  video_opts=%video_common%  -q:v 2
+set  audio_opts=%audio_common%  -b:a 320k
+
+set  command_line=ffmpeg  -i "%source%"  ^
+  %video_opts%  %audio_opts%  %FFMPEG_OPTS%  "%output%"
 ECHO  RunCmd: %command_line%
 
 @ECHO  ON
