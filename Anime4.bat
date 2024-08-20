@@ -19,7 +19,7 @@ set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
 set  audio_common= -c:a wmav2  -ac 2
 
 set  video_opts=%video_common%  -r 15 -q:v 7
-set  audio_opts=%audio_common%  -b:a 160k
+set  audio_opts=%audio_common%  -b:a 128k
 
 set  command_line=ffmpeg  -i "%source%"  ^
   %video_opts%  %audio_opts%  %FFMPEG_OPTS%  "%output%"
