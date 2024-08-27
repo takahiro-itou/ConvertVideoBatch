@@ -18,7 +18,7 @@ ECHO  Option : %FFMPEG_OPTS%
 set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
 set  audio_common= -c:a wmav2  -ac 2
 
-set  video_opts=%video_common%  -r 15 -q:v 5
+set  video_opts=%video_common%  -r 24 -q:v 5
 set  audio_opts=%audio_common%  -b:a 160k
 
 set  command_line=ffmpeg  -i "%source%"  ^
