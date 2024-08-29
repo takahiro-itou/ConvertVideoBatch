@@ -10,7 +10,7 @@ IF "%~1" == ""  GOTO finish
 
 set  source=%~1
 set  time_s=%2
-set  time_e=%3
+set  time_i=%3
 set  output=%~4
 
 ECHO  Source : %source%
