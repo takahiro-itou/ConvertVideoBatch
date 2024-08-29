@@ -24,7 +24,7 @@ set  copy_opts= -c:v copy -c:a copy  -avoid_negative_ts make_zero
 set  segment_opts=%interval%  -accurate_seek  -i "%source%"
 
 set  command_line=ffmpeg  ^
-  -i "%source%"  -ss %time_s%  -to %time_e%  ^
+  -i "%source%"  %interval%  ^
   %copy_opts%  "%output%"
 ECHO  RunCmd: %command_line%
 
