@@ -16,13 +16,14 @@ set  output=%~4
 ECHO  Source : %source%
 ECHO  Output : %output%
 ECHO  Begin  : %time_s%
-ECHO  Last   : %time_e%
+ECHO  Length : %time_i%
 ECHO  Option : %FFMPEG_OPTS%
 
+set  copy_opts= -c:v copy -c:a copy  -async 1
+
 set  command_line=ffmpeg  ^
-  -ss %time_s%  -i "%source%"  -ss 0  -to %time_e%  ^
-  -c:v copy -c:a copy -async 1  ^
-  "%output%"
+  -ss %time_s%  -i "%source%"  -ss 0  -to %time_i%  ^
+  %copy_opts%  "%output%"
 ECHO  RunCmd: %command_line%
 
 @ECHO  ON
