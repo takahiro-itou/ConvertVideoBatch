@@ -16,7 +16,7 @@ ECHO  Output : %output%
 ECHO  Option : %FFMPEG_OPTS%
 
 set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
-set  audio_common= -c:a wmav2  -ac 2
+set  audio_common= -c:a wmav2  -ac 2  -af volume=6dB
 
 set  video_opts=%video_common%  -r 15 -q:v 5
 set  audio_opts=%audio_common%  -b:a 320k
