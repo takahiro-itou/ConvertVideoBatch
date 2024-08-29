@@ -21,10 +21,10 @@ ECHO  Option : %FFMPEG_OPTS%
 
 set  interval= -ss %time_s%  -t %time_i%
 set  copy_opts= -c:v copy -c:a copy  -avoid_negative_ts make_zero
-set  segment_opts=%interval%  -accurate_seek  -i "%source%"
+set  segment_opts= -accurate_seek  -i "%source%"  %interval%
 
 set  command_line=ffmpeg  ^
-  -i "%source%"  %interval%  ^
+  %segment_opts%  ^
   %copy_opts%  "%output%"
 ECHO  RunCmd: %command_line%
 
