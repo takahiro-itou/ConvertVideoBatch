@@ -27,7 +27,7 @@ ECHO  RunCmd: %command_line%
 
 @ECHO  ON
 %command_line%
-FileTimeTools.exe  -r "%source%"  "%output%"
+FileTimeTools.exe  -C  -r "%source%"  "%output%"
 @ECHO  OFF
 
 SHIFT
