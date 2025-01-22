@@ -18,7 +18,7 @@ ECHO  Option : %FFMPEG_OPTS%
 set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
 set  audio_common= -c:a wmav2  -ac 2  -af volume=6dB
 
-set  video_opts=%video_common%  -r 24 -q:v 3
+set  video_opts=%video_common%  -r 30000/1001 -q:v 3
 set  audio_opts=%audio_common%  -b:a 192k
 
 set  command_line=ffmpeg  -i "%source%"  ^
@@ -27,7 +27,7 @@ ECHO  RunCmd: %command_line%
 
 @ECHO  ON
 %command_line%
-FileTimeTools.exe  -r "%source%"  "%output%"
+FileTimeTools.exe  -C  -r "%source%"  "%output%"
 @ECHO  OFF
 
 SHIFT
