@@ -8,6 +8,7 @@ ECHO  Video Config : %VIDEO_CONFIG%
 ECHO  Audio Config : %AUDIO_CONFIG%
 ECHO  Other Config : %OTHER_CONFIG%
 ECHO  Extra Option : %FFMPEG_OPTS%
+ECHO  Flag Dry-Run : %FLAG_DRYRUN%
 
 :loop
 
@@ -30,10 +31,14 @@ set  command_line=ffmpeg  -i "%source%"  ^
   %video_opts%  %audio_opts%  %other_opts%  %FFMPEG_OPTS%  "%output%"
 ECHO  RunCmd: %command_line%
 
+IF "%FLAG_DRYRUN%" == "dryrun" GOTO dryrun
+
 @ECHO  ON
 %command_line%
 FileTimeTools.exe  -C  -r "%source%"  "%output%"
 @ECHO  OFF
+
+:dryrun
 
 SHIFT
 GOTO  loop
