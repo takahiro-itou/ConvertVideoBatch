@@ -2,30 +2,11 @@
 @ECHO OFF
 setlocal
 
-@REM  CD /D %~dp0
+set script_dir=%~dp0
 
-:loop
+set  VIDEO_CONFIG= -q:v 2
+set  AUDIO_CONFIG= -b:a 320k
+set  OTHER_CONFIG=
+set  FLAG_DRYTUN=dryrun
 
-IF "%~1" == ""  GOTO finish
-
-set  source=%~1
-set  output=%~n1.wmv
-
-ECHO  Source : %source%
-ECHO  Output : %output%
-ECHO  Option : %FFMPEG_OPTS%
-
-set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
-set  audio_common= -c:a wmav2  -ac 2  -af volume=6dB
-
-set  video_opts=%video_common%  -q:v 2
-set  audio_opts=%audio_common%  -b:a 320k
-
-set  command_line=ffmpeg  -i "%source%"  ^
-  %video_opts%  %audio_opts%  %FFMPEG_OPTS%  "%output%"
-ECHO  RunCmd: %command_line%
-
-SHIFT
-GOTO  loop
-
-:finish
+CALL  "%script_dir%Common.bat"  %*
