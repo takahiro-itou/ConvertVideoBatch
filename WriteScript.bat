@@ -13,10 +13,10 @@ IF "%~1" == ""  GOTO finish
 
 set  source=%~1
 
-set  conv_cmd=%convtype%  "%source%"
+set  conv_cmd=CALL  %convtype%  "%source%"
 set  conv_log=cscript //NoLogo Tee.vbs  -a Convert.log
 
-ECHO  %conv_cmd%  ^^^|  %conv_log%  | cscript //NoLogo  Tee.vbs -a  Run.bat
+ECHO %conv_cmd%  ^^^|  %conv_log%  | cscript //NoLogo  Tee.vbs -a  Run.bat
 
 SHIFT
 GOTO  loop
