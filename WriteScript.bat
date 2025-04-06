@@ -13,7 +13,10 @@ IF "%~1" == ""  GOTO finish
 
 set  source=%~1
 
-set  command_line=CALL  %convtype%  "%source%"
+set  conv_cmd=%convtype%  "%source%"
+set  conv_log=| cscript //NoLogo Tee.vbs  -a Convert.log
+
+set  command_line=CALL  %conv_cdm%  %conv_log%
 
 ECHO  %command_line%  | cscript //NoLogo  Tee.vbs -a  Run.bat
 
