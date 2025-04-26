@@ -4,12 +4,8 @@ setlocal
 
 set  script_dir=%~dp0
 
-set  VIDEO_CONFIG= -q:v 2
-set  AUDIO_CONFIG=
-set  OTHER_CONFIG= -map 0:v:%1 -map 0:a:%2
+CALL  "%script_dir%Config\Test.cnf.bat"
 
-SHIFT
-SHIFT
-
+set  MAP_CONFIG= -map 0:v:%1 -map 0:a:%2
 
 CALL  "%script_dir%Common.bat"  %*
