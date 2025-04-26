@@ -4,9 +4,15 @@ setlocal
 
 set  script_dir=%~dp0
 
+set  DUMMY_MAP_V=%1
+SHIFT
+set  DUMMY_MAP_A=%2
+SHIFT
+
 ECHO  Video Config : %VIDEO_CONFIG%
 ECHO  Audio Config : %AUDIO_CONFIG%
 ECHO  Other Config : %OTHER_CONFIG%
+ECHO  Map   Config : %MAP_CONFIG%
 ECHO  Extra Option : %FFMPEG_OPTS%
 ECHO  Flag Dry-Run : %FLAG_DRYRUN%
 
