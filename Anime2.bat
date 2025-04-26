@@ -4,8 +4,8 @@ setlocal
 
 set  script_dir=%~dp0
 
-CALL  "%script_dir%Config\Anime1.cnf.bat"
+CALL  "%script_dir%Config\Anime2.cnf.bat"
 
 set  MAP_CONFIG=
 
-CALL  "%script_dir%Common.bat"  %*
+CALL  "%script_dir%Common.bat"  0  0  %*
