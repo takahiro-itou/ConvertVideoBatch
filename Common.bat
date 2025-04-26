@@ -9,7 +9,6 @@ IF "%~1" == "auto" (
 ) ELSE (
     set  map_v_opts= -map 0:v:%~1
 )
-
 SHIFT
 
 IF "%~1" == "auto" (
@@ -17,6 +16,7 @@ IF "%~1" == "auto" (
 ) ELSE (
     set  map_a_opts= -map 0:a:%~1
 )
+SHIFT
 
 set  MAP_CONFIG= %map_v_opts%  %map_a_opts%
 
