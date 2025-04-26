@@ -4,10 +4,21 @@ setlocal
 
 set  script_dir=%~dp0
 
-set  DUMMY_MAP_V=%1
+IF "%~1" == "auto" (
+    set  map_v_opts
+) ELSE (
+    set  map_v_opts= -map 0:v:%~1
+)
+
 SHIFT
-set  DUMMY_MAP_A=%2
-SHIFT
+
+IF "%~1" == "auto" (
+    set  map_a_opts
+) ELSE (
+    set  map_a_opts= -map 0:a:%~1
+)
+
+set  MAP_CONFIG= %map_v_opts%  %map_a_opts%
 
 ECHO  Video Config : %VIDEO_CONFIG%
 ECHO  Audio Config : %AUDIO_CONFIG%
