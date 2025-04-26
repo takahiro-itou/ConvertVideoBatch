@@ -4,9 +4,16 @@ setlocal
 
 @REM  CD /D %~dp0
 
+set   MAP_CONFIG= -map 0:v:%1 -map 0:a:%2
+
+SHIFT
+SHIFT
+
+
 ECHO  Video Config : %VIDEO_CONFIG%
 ECHO  Audio Config : %AUDIO_CONFIG%
 ECHO  Other Config : %OTHER_CONFIG%
+ECHO  Map   Config : %MAP_CONFIG%
 ECHO  Extra Option : %FFMPEG_OPTS%
 ECHO  Flag Dry-Run : %FLAG_DRYRUN%
 
@@ -25,7 +32,7 @@ set  audio_common= -c:a wmav2  -ac 2  -af volume=6dB
 
 set  video_opts=%video_common%  %VIDEO_CONFIG%
 set  audio_opts=%audio_common%  %AUDIO_CONFIG%
-set  other_opts=%OTHER_CONFIG%
+set  other_opts=%MAP_CONFIG%    %OTHER_CONFIG%
 
 set  command_line=ffmpeg  -i "%source%"  ^
   %video_opts%  %audio_opts%  %other_opts%  %FFMPEG_OPTS%  "%output%"
