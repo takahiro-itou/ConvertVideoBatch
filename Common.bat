@@ -5,7 +5,7 @@ setlocal
 set  script_dir=%~dp0
 
 IF "%~1" == "auto" (
-    set  map_v_opts
+    set  map_v_opts=
 ) ELSE (
     set  map_v_opts= -map 0:v:%~1
 )
@@ -13,7 +13,7 @@ IF "%~1" == "auto" (
 SHIFT
 
 IF "%~1" == "auto" (
-    set  map_a_opts
+    set  map_a_opts=
 ) ELSE (
     set  map_a_opts= -map 0:a:%~1
 )
