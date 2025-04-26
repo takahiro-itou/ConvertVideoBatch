@@ -8,4 +8,4 @@ CALL  "%script_dir%Config\Anime2.cnf.bat"
 
 set  MAP_CONFIG=
 
-CALL  "%script_dir%Common.bat"  0  0  %*
+CALL  "%script_dir%Common.bat"  auto  auto  %*

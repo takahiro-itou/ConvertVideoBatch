@@ -9,4 +9,3 @@ CALL  "%script_dir%Config\Variety2.cnf.bat"
 set  MAP_CONFIG= -map 0:v:%1 -map 0:a:%2
 
 CALL  "%script_dir%Common.bat"  %*
-
