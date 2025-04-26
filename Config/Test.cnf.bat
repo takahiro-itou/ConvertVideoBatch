@@ -1,0 +1,4 @@
+
+set  VIDEO_CONFIG= -q:v 2
+set  AUDIO_CONFIG=
+set  OTHER_CONFIG=

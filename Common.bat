@@ -2,11 +2,28 @@
 @ECHO OFF
 setlocal
 
-@REM  CD /D %~dp0
+set  script_dir=%~dp0
+
+IF "%~1" == "auto" (
+    set  map_v_opts=
+) ELSE (
+    set  map_v_opts= -map 0:v:%~1
+)
+SHIFT
+
+IF "%~1" == "auto" (
+    set  map_a_opts=
+) ELSE (
+    set  map_a_opts= -map 0:a:%~1
+)
+SHIFT
+
+set  MAP_CONFIG= %map_v_opts%  %map_a_opts%
 
 ECHO  Video Config : %VIDEO_CONFIG%
 ECHO  Audio Config : %AUDIO_CONFIG%
 ECHO  Other Config : %OTHER_CONFIG%
+ECHO  Map   Config : %MAP_CONFIG%
 ECHO  Extra Option : %FFMPEG_OPTS%
 ECHO  Flag Dry-Run : %FLAG_DRYRUN%
 
@@ -20,12 +37,7 @@ set  output=%~n1.wmv
 ECHO  Source : %source%
 ECHO  Output : %output%
 
-set  video_common= -c:v wmv2  -s 480x270  -aspect 16:9
-set  audio_common= -c:a wmav2  -ac 2  -af volume=6dB
-
-set  video_opts=%video_common%  %VIDEO_CONFIG%
-set  audio_opts=%audio_common%  %AUDIO_CONFIG%
-set  other_opts=%OTHER_CONFIG%
+CALL  "%script_dir%\Config\Common.cnf.bat"
 
 set  command_line=ffmpeg  -i "%source%"  ^
   %video_opts%  %audio_opts%  %other_opts%  %FFMPEG_OPTS%  "%output%"
