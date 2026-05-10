@@ -4,7 +4,7 @@ CALL  Anime2-1st  "$FilePath$"  2>&1  |  cscript //NoLogo Tee.vbs  -a Convert.lo
 
 IF errorlevel 1 GOTO failure
 
-MOVE /Y  "$FilePath$"  "L:\AutoConverted\Anime"
+MOVE /Y  "$FilePath$"  L:\AutoConverted\Anime\
 
 echo  SUCCESS
 
